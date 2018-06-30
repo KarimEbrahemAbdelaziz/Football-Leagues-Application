@@ -70,14 +70,118 @@
 		7FFA425720E76F10008EA124 /* Football Leagues App */ = {
 			isa = PBXGroup;
 			children = (
-				7FFA425820E76F10008EA124 /* AppDelegate.swift */,
-				7FFA425A20E76F10008EA124 /* ViewController.swift */,
-				7FFA425C20E76F10008EA124 /* Main.storyboard */,
-				7FFA425F20E76F11008EA124 /* Assets.xcassets */,
-				7FFA426120E76F11008EA124 /* LaunchScreen.storyboard */,
-				7FFA426420E76F11008EA124 /* Info.plist */,
+				7FFA427520E77E13008EA124 /* App */,
+				7FFA426A20E77D2E008EA124 /* Resources */,
+				7FFA426B20E77D5B008EA124 /* Utilities */,
+				7FFA426E20E77D70008EA124 /* Networking */,
+				7FFA426F20E77D7F008EA124 /* Models */,
+				7FFA427120E77D97008EA124 /* Scenes */,
+				7FFA427020E77D84008EA124 /* Library */,
+				7FFA427620E77E40008EA124 /* Storyboards */,
 			);
 			path = "Football Leagues App";
+			sourceTree = "<group>";
+		};
+		7FFA426A20E77D2E008EA124 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA426420E76F11008EA124 /* Info.plist */,
+				7FFA425F20E76F11008EA124 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7FFA426B20E77D5B008EA124 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA426D20E77D68008EA124 /* Helpers */,
+				7FFA426C20E77D62008EA124 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7FFA426C20E77D62008EA124 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FFA426D20E77D68008EA124 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7FFA426E20E77D70008EA124 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7FFA426F20E77D7F008EA124 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7FFA427020E77D84008EA124 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		7FFA427120E77D97008EA124 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA427420E77DF8008EA124 /* ShowTeam */,
+				7FFA427320E77DF1008EA124 /* ShowTeams */,
+				7FFA427220E77DDB008EA124 /* ShowLeagues */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7FFA427220E77DDB008EA124 /* ShowLeagues */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA425A20E76F10008EA124 /* ViewController.swift */,
+			);
+			path = ShowLeagues;
+			sourceTree = "<group>";
+		};
+		7FFA427320E77DF1008EA124 /* ShowTeams */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShowTeams;
+			sourceTree = "<group>";
+		};
+		7FFA427420E77DF8008EA124 /* ShowTeam */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShowTeam;
+			sourceTree = "<group>";
+		};
+		7FFA427520E77E13008EA124 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA425820E76F10008EA124 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7FFA427620E77E40008EA124 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA425C20E76F10008EA124 /* Main.storyboard */,
+				7FFA426120E76F11008EA124 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C92A6DE8C2A787EDBAFFA1C6 /* Frameworks */ = {
@@ -361,8 +465,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Football Leagues App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = "$(SRCROOT)/Football Leagues App/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,8 +484,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Football Leagues App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = "$(SRCROOT)/Football Leagues App/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
