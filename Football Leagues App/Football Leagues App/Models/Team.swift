@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 struct Team {
-    let teamFixturesUrl: String?
+    let teamFixturesUrl: String
     let teamName: String
     let teamLogo: String
 }

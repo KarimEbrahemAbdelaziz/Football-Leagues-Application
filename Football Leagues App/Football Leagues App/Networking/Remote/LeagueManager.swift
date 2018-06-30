@@ -49,4 +49,16 @@ class LeagueManager {
         }
     }
     
+    func getTeamInformation(teamInformationUrl: String) -> Observable<Team>
+    {
+        return RxAlamofire.requestJSON(LeagueRouter.getTeamInformation(teamInformationUrl: teamInformationUrl))
+            .observeOn(MainScheduler.instance)
+            .map { (arg) in
+                let (_, responseData) = arg
+                let responseJson = JSON(responseData)
+                let team = Team.init(from: responseJson)
+                return team!
+        }
+    }
+    
 }

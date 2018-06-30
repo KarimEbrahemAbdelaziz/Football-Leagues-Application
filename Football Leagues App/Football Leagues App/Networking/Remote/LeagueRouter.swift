@@ -14,6 +14,7 @@ enum LeagueRouter: URLRequestConvertible {
     case getLeagues()
     case getLeagueTeams(leagueTeamsUrl: String)
     case getTeamFixtures(teamFixturesUrl: String)
+    case getTeamInformation(teamInformationUrl: String)
     
     func asURLRequest() throws -> URLRequest {
         let url: URL = {
@@ -26,6 +27,8 @@ enum LeagueRouter: URLRequestConvertible {
                 relativePath = "\(leagueTeamsUrl)"
             case .getTeamFixtures(let teamFixturesUrl):
                 relativePath = "\(teamFixturesUrl)"
+            case .getTeamInformation(let teamInformationUrl):
+                relativePath = "\(teamInformationUrl)"
             }
             var url = URL(string: relativePath!)!
             return url
@@ -33,13 +36,13 @@ enum LeagueRouter: URLRequestConvertible {
         
         var method: HTTPMethod {
             switch self {
-            case .getLeagues, .getLeagueTeams, .getTeamFixtures:
+            case .getLeagues, .getLeagueTeams, .getTeamFixtures, .getTeamInformation:
                 return .get
             }
         }
         let params: ([String: Any]?) = {
             switch self {
-            case .getLeagues, .getLeagueTeams, .getTeamFixtures:
+            case .getLeagues, .getLeagueTeams, .getTeamFixtures, .getTeamInformation:
                 return nil
             }
         }()
