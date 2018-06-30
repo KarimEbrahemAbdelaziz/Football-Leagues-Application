@@ -11,7 +11,7 @@ import RxAlamofire
 import RxSwift
 import SwiftyJSON
 
-class LeagueManager {
+class RemoteLeagueManager {
     
     func getLeagues() -> Observable<[League]>
     {
