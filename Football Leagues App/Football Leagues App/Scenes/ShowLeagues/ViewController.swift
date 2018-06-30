@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let leagueManager = LeagueManager()
-        leagueManager.getLeagueTeams(leagueTeamsUrl: "http://api.football-data.org/v1/competitions/444/teams").subscribe(onNext: { (value) in
+        leagueManager.getTeamFixtures(teamFixturesUrl: "http://api.football-data.org/v1/teams/1783/fixtures").subscribe(onNext: { (value) in
             print(value.count)
             print(value.first!)
         }, onError: { (error) in

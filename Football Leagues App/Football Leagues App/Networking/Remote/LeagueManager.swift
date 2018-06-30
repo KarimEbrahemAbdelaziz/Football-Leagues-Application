@@ -37,4 +37,16 @@ class LeagueManager {
         }
     }
     
+    func getTeamFixtures(teamFixturesUrl: String) -> Observable<[Match]>
+    {
+        return RxAlamofire.requestJSON(LeagueRouter.getTeamFixtures(teamFixturesUrl: teamFixturesUrl))
+            .observeOn(MainScheduler.instance)
+            .map { (arg) in
+                let (_, responseData) = arg
+                let responseJson = JSON(responseData)["fixtures"].array
+                let matchs = responseJson?.compactMap(Match.init)
+                return matchs!
+        }
+    }
+    
 }

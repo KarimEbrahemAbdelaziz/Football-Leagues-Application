@@ -13,7 +13,7 @@ enum LeagueRouter: URLRequestConvertible {
     
     case getLeagues()
     case getLeagueTeams(leagueTeamsUrl: String)
-    case getTeamFixtures(teanFixturesUrl: String)
+    case getTeamFixtures(teamFixturesUrl: String)
     
     func asURLRequest() throws -> URLRequest {
         let url: URL = {
@@ -24,8 +24,8 @@ enum LeagueRouter: URLRequestConvertible {
                 relativePath = "http://api.football-data.org/v1/competitions"
             case .getLeagueTeams(let leagueTeamsUrl):
                 relativePath = "\(leagueTeamsUrl)"
-            case .getTeamFixtures(let teanFixturesUrl):
-                relativePath = "\(teanFixturesUrl)"
+            case .getTeamFixtures(let teamFixturesUrl):
+                relativePath = "\(teamFixturesUrl)"
             }
             var url = URL(string: relativePath!)!
             return url
