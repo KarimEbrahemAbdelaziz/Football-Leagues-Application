@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 
 struct League {
-    let leagueInformationUrl: String
     let leagueTeamsUrl: String
     let caption: String
     let league: String
@@ -21,7 +20,6 @@ struct League {
 extension League {
     init?(from json: JSON) {
         guard
-            let leagueInformationUrl = json["_links"]["self"]["href"].string,
             let leagueTeamsUrl = json["_links"]["teams"]["href"].string,
             let caption = json["caption"].string,
             let league = json["league"].string,
@@ -29,6 +27,6 @@ extension League {
             let numberOfGames = json["numberOfGames"].int
             else { return nil }
         
-        self.init(leagueInformationUrl: leagueInformationUrl, leagueTeamsUrl: leagueTeamsUrl, caption: caption, league: league, numberOfTeams: numberOfTeams, numberOfGames: numberOfGames)
+        self.init(leagueTeamsUrl: leagueTeamsUrl, caption: caption, league: league, numberOfTeams: numberOfTeams, numberOfGames: numberOfGames)
     }
 }
