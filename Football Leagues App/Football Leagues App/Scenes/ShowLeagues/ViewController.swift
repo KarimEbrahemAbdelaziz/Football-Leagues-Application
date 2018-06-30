@@ -13,18 +13,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let leagueManager = LeagueManager()
-        leagueManager.getTeamInformation(teamInformationUrl: "http://api.football-data.org/v1/teams/1782").subscribe(onNext: { (value) in
-            print(value.teamFixturesUrl)
-            print(value.teamName)
-            print(value.teamLogo)
+        let leagueManager = RemoteLeagueManager()
+        let localDatabase = LocalLeagueManager.sharedInstance
+        localDatabase.createTables()
+        
+        _ = leagueManager.getLeagues().subscribe(onNext: { (leagues) in
+            _ = leagues.map({ (league) in
+                LeagueDataHelper.insert(item: league)
+            })
         }, onError: { (error) in
-            print(error)
+            print("Error OnError")
         }, onCompleted: {
-            print("completed")
+            print("Completed")
+            let leagues = LeagueDataHelper.findAll().map { (league) in
+                print("\(league.league) \(league.caption)")
+            }
         }) {
             print("Disposed")
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

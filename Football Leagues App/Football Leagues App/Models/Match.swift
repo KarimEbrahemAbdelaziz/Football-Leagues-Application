@@ -30,7 +30,7 @@ extension Match {
             let awayTeamName = json["awayTeamName"].string
             else { return nil }
         
-        var matchResultData: MatchResult? = nil
+        var matchResultData: MatchResult = MatchResult(goalsHomeTeam: -1, goalsAwayTeam: -1)
         if let goalsHome = json["result"]["goalsHomeTeam"].int, let goalsAway = json["result"]["goalsAwayTeam"].int {
             let matchResult = MatchResult(goalsHomeTeam: goalsHome, goalsAwayTeam: goalsAway)
             matchResultData = matchResult
