@@ -21,6 +21,9 @@ class LeagueListViewModel {
     
     // MARK: - Outputs
     
+    /// Emits a formatted title for a navigation item.
+    let title: Observable<String>
+    
     /// Emits an array of fetched repositories.
     let leagues: Observable<[LeagueViewModel]>
     
@@ -54,5 +57,8 @@ class LeagueListViewModel {
             .map {
                 $0.leagueTeamsUrl
         }
+        
+        self.title = Observable.from(["Football Leagues"])
+            .map { "\($0)" }
     }
 }

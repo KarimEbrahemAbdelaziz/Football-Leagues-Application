@@ -36,8 +36,8 @@ class LeagueListCoordinator: BaseCoordinator<Void> {
     }
     
     private func showLeagueTeams(by url: String, in navigationController: UINavigationController) -> Observable<Void> {
-//        let leagueListCoordinator = LeagueListCoordinator(window: window)
-//        return coordinate(to: leagueListCoordinator)
+        let teamListCoordinator = TeamListCoordinator(navigationController: navigationController)
+        return coordinate(to: teamListCoordinator)
     }
 
 }

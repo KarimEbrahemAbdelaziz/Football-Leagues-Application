@@ -29,7 +29,6 @@ class LeagueListViewController: UIViewController, StoryboardInitializable {
     }
 
     private func setupUI() {
-        self.navigationController?.navigationItem.title = "Football Leagues"
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         tableView.insertSubview(refreshControl, at: 0)
@@ -49,6 +48,10 @@ class LeagueListViewController: UIViewController, StoryboardInitializable {
         
         viewModel.alertMessage
             .subscribe(onNext: { [weak self] in self?.presentAlert(message: $0) })
+            .disposed(by: disposeBag)
+        
+        viewModel.title
+            .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
         
         // View Controller UI actions to the View Model

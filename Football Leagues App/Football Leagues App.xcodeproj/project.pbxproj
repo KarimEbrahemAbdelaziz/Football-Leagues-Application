@@ -26,6 +26,11 @@
 		7FB4E6B520E84EA400B3533B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6B420E84EA400B3533B /* Repository.swift */; };
 		7FB4E6B720E84F8400B3533B /* LeaguesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6B620E84F8400B3533B /* LeaguesRepository.swift */; };
 		7FB4E6B920E8532D00B3533B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6B820E8532D00B3533B /* Reachability.swift */; };
+		7FB4E6BB20E864E100B3533B /* TeamListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6BA20E864E100B3533B /* TeamListCoordinator.swift */; };
+		7FB4E6C020E8658F00B3533B /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6BF20E8658F00B3533B /* TeamListViewController.swift */; };
+		7FB4E6C220E866C500B3533B /* TeamListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6C120E866C500B3533B /* TeamListViewModel.swift */; };
+		7FB4E6C420E866D000B3533B /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6C320E866D000B3533B /* TeamViewModel.swift */; };
+		7FB4E6C620E866E900B3533B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6C520E866E900B3533B /* TeamCell.swift */; };
 		7FFA425920E76F10008EA124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA425820E76F10008EA124 /* AppDelegate.swift */; };
 		7FFA425B20E76F10008EA124 /* LeagueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA425A20E76F10008EA124 /* LeagueListViewController.swift */; };
 		7FFA425E20E76F10008EA124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA425C20E76F10008EA124 /* Main.storyboard */; };
@@ -56,6 +61,11 @@
 		7FB4E6B420E84EA400B3533B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7FB4E6B620E84F8400B3533B /* LeaguesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesRepository.swift; sourceTree = "<group>"; };
 		7FB4E6B820E8532D00B3533B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		7FB4E6BA20E864E100B3533B /* TeamListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCoordinator.swift; sourceTree = "<group>"; };
+		7FB4E6BF20E8658F00B3533B /* TeamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
+		7FB4E6C120E866C500B3533B /* TeamListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListViewModel.swift; sourceTree = "<group>"; };
+		7FB4E6C320E866D000B3533B /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		7FB4E6C520E866E900B3533B /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		7FFA425520E76F10008EA124 /* Football Leagues App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Leagues App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFA425820E76F10008EA124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFA425A20E76F10008EA124 /* LeagueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueListViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +238,11 @@
 		7FFA427320E77DF1008EA124 /* ShowTeams */ = {
 			isa = PBXGroup;
 			children = (
+				7FB4E6BA20E864E100B3533B /* TeamListCoordinator.swift */,
+				7FB4E6BF20E8658F00B3533B /* TeamListViewController.swift */,
+				7FB4E6C120E866C500B3533B /* TeamListViewModel.swift */,
+				7FB4E6C320E866D000B3533B /* TeamViewModel.swift */,
+				7FB4E6C520E866E900B3533B /* TeamCell.swift */,
 			);
 			path = ShowTeams;
 			sourceTree = "<group>";
@@ -394,10 +409,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FB4E6B720E84F8400B3533B /* LeaguesRepository.swift in Sources */,
+				7FB4E6C220E866C500B3533B /* TeamListViewModel.swift in Sources */,
 				7FB4E6A720E7B6E900B3533B /* LeagueDataHelper.swift in Sources */,
 				7FB4E69D20E79CE200B3533B /* Team.swift in Sources */,
 				7F70278820E780580034D3FB /* AppCoordinator.swift in Sources */,
 				7FB4E6B120E846A700B3533B /* LeagueListCoordinator.swift in Sources */,
+				7FB4E6C620E866E900B3533B /* TeamCell.swift in Sources */,
+				7FB4E6BB20E864E100B3533B /* TeamListCoordinator.swift in Sources */,
 				7FB4E6B320E846C300B3533B /* LeagueCell.swift in Sources */,
 				7FB4E69720E786D200B3533B /* LeagueRouter.swift in Sources */,
 				7FB4E69F20E7A2DA00B3533B /* Match.swift in Sources */,
@@ -408,8 +426,10 @@
 				7FB4E6B520E84EA400B3533B /* Repository.swift in Sources */,
 				7FFA425B20E76F10008EA124 /* LeagueListViewController.swift in Sources */,
 				7FB4E6B920E8532D00B3533B /* Reachability.swift in Sources */,
+				7FB4E6C020E8658F00B3533B /* TeamListViewController.swift in Sources */,
 				7FFA425920E76F10008EA124 /* AppDelegate.swift in Sources */,
 				7FB4E6A920E7C0BD00B3533B /* TeamDataHelper.swift in Sources */,
+				7FB4E6C420E866D000B3533B /* TeamViewModel.swift in Sources */,
 				7F70278A20E780850034D3FB /* BaseCoordinator.swift in Sources */,
 				7FB4E69920E786DF00B3533B /* RemoteLeagueManager.swift in Sources */,
 				7FB4E6A520E7B6BE00B3533B /* DataHelperProtocol.swift in Sources */,
