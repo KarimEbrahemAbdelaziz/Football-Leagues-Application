@@ -1,0 +1,18 @@
+//
+//  Repository.swift
+//  Football Leagues App
+//
+//  Created by Karim Ebrahem on 7/1/18.
+//  Copyright © 2018 Karim Ebrahem. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+
+protocol LeagueRepositoryProtocol {
+    func getData() -> Observable<[League]>
+}
+
+protocol TeamsRepositoryProtocol {
+    func getData(from teamsUrl: String) -> Observable<[Team]>
+}

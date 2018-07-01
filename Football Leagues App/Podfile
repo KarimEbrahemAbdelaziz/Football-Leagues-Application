@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'Football Leagues App' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Football Leagues App
+  pod 'SDWebImage'
+  pod 'JGProgressHUD'
+  pod 'RxAlamofire'
+  pod 'SwiftyJSON'
+  pod 'IBAnimatable'
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+  pod 'SQLite.swift', '~> 0.11.5'
+
+end
