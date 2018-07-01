@@ -2,7 +2,7 @@
 //  LocalLeagueManager.swift
 //  Football Leagues App
 //
-//  Created by Ahmed Shehata on 6/30/18.
+//  Created by Karim Ebrahem on 6/30/18.
 //  Copyright © 2018 Karim Ebrahem. All rights reserved.
 //
 
