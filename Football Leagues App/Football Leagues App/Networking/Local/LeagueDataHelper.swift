@@ -10,18 +10,21 @@ import Foundation
 import SQLite
 
 class LeagueDataHelper: DataHelperProtocol {
-    static let TABLE_NAME = "Leagues"
     
-    static let table = Table(TABLE_NAME)
-    static let leagueTeamsUrl = Expression<String>("leagueTeamsUrl")
-    static let caption = Expression<String>("caption")
-    static let leagueShort = Expression<String>("league")
-    static let numberOfTeams = Expression<Int>("numberOfTeams")
-    static let numberOfGames = Expression<Int>("numberOfGames")
+    private let table = Table("Leagues")
+    private let leagueTeamsUrl = Expression<String>("leagueTeamsUrl")
+    private let caption = Expression<String>("caption")
+    private let leagueShort = Expression<String>("league")
+    private let numberOfTeams = Expression<Int>("numberOfTeams")
+    private let numberOfGames = Expression<Int>("numberOfGames")
     
     typealias T = League
     
-    static func createTable() {
+    init() {
+        createTable()
+    }
+    
+    private func createTable() {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return
         }
@@ -39,7 +42,7 @@ class LeagueDataHelper: DataHelperProtocol {
         }
     }
     
-    static func insert(item: T) {
+    func insert(item: T) {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return
         }
@@ -57,7 +60,7 @@ class LeagueDataHelper: DataHelperProtocol {
         }
     }
     
-    static func findAll() -> [T] {
+    func findAll() -> [T] {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return []
         }
@@ -74,7 +77,7 @@ class LeagueDataHelper: DataHelperProtocol {
         return leagues
     }
     
-    static func drop() {
+    func drop() {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return
         }

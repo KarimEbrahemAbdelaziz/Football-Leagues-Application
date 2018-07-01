@@ -10,16 +10,19 @@ import Foundation
 import SQLite
 
 class TeamDataHelper: DataHelperProtocol {
-    static let TABLE_NAME = "Teams"
     
-    static let table = Table(TABLE_NAME)
-    static let teamFixturesUrl = Expression<String>("teamFixturesUrl")
-    static let teamName = Expression<String>("teamName")
-    static let teamLogo = Expression<String>("teamLogo")
+    private let table = Table("Teams")
+    private let teamFixturesUrl = Expression<String>("teamFixturesUrl")
+    private let teamName = Expression<String>("teamName")
+    private let teamLogo = Expression<String>("teamLogo")
     
     typealias T = Team
     
-    static func createTable() {
+    init() {
+        createTable()
+    }
+    
+    private func createTable() {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return
         }
@@ -35,7 +38,7 @@ class TeamDataHelper: DataHelperProtocol {
         }
     }
     
-    static func insert(item: T) {
+    func insert(item: T) {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return
         }
@@ -51,7 +54,7 @@ class TeamDataHelper: DataHelperProtocol {
         }
     }
     
-    static func findAll() -> [T] {
+    func findAll() -> [T] {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return []
         }
@@ -66,7 +69,7 @@ class TeamDataHelper: DataHelperProtocol {
         return leagues
     }
     
-    static func drop() {
+    func drop() {
         guard let DB = LocalLeagueManager.sharedInstance.dbConnection else {
             return
         }

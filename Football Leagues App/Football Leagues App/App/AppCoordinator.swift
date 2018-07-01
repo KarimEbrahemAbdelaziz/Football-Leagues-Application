@@ -17,8 +17,8 @@ class AppCoordinator: BaseCoordinator<Void> {
         self.window = window
     }
     
-    //TODO:- Implement it as a start point of application
-//    override func start() -> Observable<Void> {
-//
-//    }
+    override func start() -> Observable<Void> {
+        let leagueListCoordinator = LeagueListCoordinator(window: window)
+        return coordinate(to: leagueListCoordinator)
+    }
 }
