@@ -28,6 +28,9 @@
 		7FB4E6C620E866E900B3533B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6C520E866E900B3533B /* TeamCell.swift */; };
 		7FB4E6C820E86FA400B3533B /* TeamsRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6C720E86FA400B3533B /* TeamsRespository.swift */; };
 		7FB4E6CA20E8752300B3533B /* FixtureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6C920E8752300B3533B /* FixtureListViewController.swift */; };
+		7FB4E6CC20E8868800B3533B /* FinishedGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6CB20E8868800B3533B /* FinishedGameCell.swift */; };
+		7FB4E6CE20E8869A00B3533B /* ScheduledGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6CD20E8869A00B3533B /* ScheduledGameCell.swift */; };
+		7FB4E6D020E88F0900B3533B /* LoadingHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4E6CF20E88F0900B3533B /* LoadingHud.swift */; };
 		7FFA425920E76F10008EA124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA425820E76F10008EA124 /* AppDelegate.swift */; };
 		7FFA425B20E76F10008EA124 /* LeagueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA425A20E76F10008EA124 /* LeagueListViewController.swift */; };
 		7FFA425E20E76F10008EA124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA425C20E76F10008EA124 /* Main.storyboard */; };
@@ -60,6 +63,9 @@
 		7FB4E6C520E866E900B3533B /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		7FB4E6C720E86FA400B3533B /* TeamsRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsRespository.swift; sourceTree = "<group>"; };
 		7FB4E6C920E8752300B3533B /* FixtureListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureListViewController.swift; sourceTree = "<group>"; };
+		7FB4E6CB20E8868800B3533B /* FinishedGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedGameCell.swift; sourceTree = "<group>"; };
+		7FB4E6CD20E8869A00B3533B /* ScheduledGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledGameCell.swift; sourceTree = "<group>"; };
+		7FB4E6CF20E88F0900B3533B /* LoadingHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHud.swift; sourceTree = "<group>"; };
 		7FFA425520E76F10008EA124 /* Football Leagues App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Leagues App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFA425820E76F10008EA124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFA425A20E76F10008EA124 /* LeagueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueListViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				7FB4E6B820E8532D00B3533B /* Reachability.swift */,
+				7FB4E6CF20E88F0900B3533B /* LoadingHud.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				7FB4E6C920E8752300B3533B /* FixtureListViewController.swift */,
+				7FB4E6CB20E8868800B3533B /* FinishedGameCell.swift */,
+				7FB4E6CD20E8869A00B3533B /* ScheduledGameCell.swift */,
 			);
 			path = ShowTeam;
 			sourceTree = "<group>";
@@ -404,6 +413,8 @@
 				7FB4E6AD20E8462200B3533B /* LeagueViewModel.swift in Sources */,
 				7FB4E69B20E7963C00B3533B /* League.swift in Sources */,
 				7FB4E6A120E7ABF200B3533B /* LocalLeagueManager.swift in Sources */,
+				7FB4E6CC20E8868800B3533B /* FinishedGameCell.swift in Sources */,
+				7FB4E6CE20E8869A00B3533B /* ScheduledGameCell.swift in Sources */,
 				7FB4E6B520E84EA400B3533B /* Repository.swift in Sources */,
 				7FFA425B20E76F10008EA124 /* LeagueListViewController.swift in Sources */,
 				7FB4E6B920E8532D00B3533B /* Reachability.swift in Sources */,
@@ -411,6 +422,7 @@
 				7FFA425920E76F10008EA124 /* AppDelegate.swift in Sources */,
 				7FB4E6A920E7C0BD00B3533B /* TeamDataHelper.swift in Sources */,
 				7FB4E6C420E866D000B3533B /* TeamViewModel.swift in Sources */,
+				7FB4E6D020E88F0900B3533B /* LoadingHud.swift in Sources */,
 				7FB4E69920E786DF00B3533B /* RemoteLeagueManager.swift in Sources */,
 				7FB4E6A520E7B6BE00B3533B /* DataHelperProtocol.swift in Sources */,
 				7FB4E6AF20E8464A00B3533B /* LeagueListViewModel.swift in Sources */,

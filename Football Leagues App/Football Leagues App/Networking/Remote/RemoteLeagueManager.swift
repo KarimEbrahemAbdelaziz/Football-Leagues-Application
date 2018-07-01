@@ -13,6 +13,9 @@ import SwiftyJSON
 
 class RemoteLeagueManager {
     
+    private let leagueDataHelper = LeagueDataHelper()
+    private let teamDataHelper = TeamDataHelper()
+    
     func getLeagues() -> Observable<[League]>
     {
         return RxAlamofire.requestJSON(LeagueRouter.getLeagues())
@@ -21,6 +24,9 @@ class RemoteLeagueManager {
                 let (_, responseData) = arg
                 let responseJson = JSON(responseData).array
                 let leagues = responseJson?.compactMap(League.init)
+                _ = leagues?.map({ (league) in
+                    self.leagueDataHelper.insert(item: league)
+                })
                 return leagues!
             }
     }
@@ -33,6 +39,9 @@ class RemoteLeagueManager {
                 let (_, responseData) = arg
                 let responseJson = JSON(responseData)["teams"].array
                 let teams = responseJson?.compactMap(Team.init)
+                _ = teams?.map({ (team) in
+                    self.teamDataHelper.insert(item: team)
+                })
                 return teams!
         }
     }

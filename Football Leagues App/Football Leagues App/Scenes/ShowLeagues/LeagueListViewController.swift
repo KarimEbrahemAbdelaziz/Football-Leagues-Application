@@ -22,7 +22,7 @@ class LeagueListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var viewModel = LeagueListViewModel()
     
-    private var selectedUrl = ""
+    private var selectedLeague: LeagueViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ class LeagueListViewController: UIViewController {
         
         viewModel.showLeagueTeams
             .subscribe({ [weak self] value in
-                self?.selectedUrl = value.element!
+                self?.selectedLeague = value.element!
                 self?.openTeamsList()
             })
             .disposed(by: disposeBag)
@@ -107,28 +107,10 @@ class LeagueListViewController: UIViewController {
         }
     }
     
-    /// Setups `TeamListViewController` befor navigation.
-    ///
-    /// - Parameter viewController: `TeamListViewController` to prepare.
     private func prepareTeamListViewController(_ viewController: TeamListViewController) {
-        let teamLisViewModel = TeamListViewModel(teamsUrl: selectedUrl)
+        let teamLisViewModel = TeamListViewModel(teamsUrl: selectedLeague.leagueTeamsUrl)
+        viewController.leagueInformation = selectedLeague
         viewController.viewModel = teamLisViewModel
-//        let languageListViewModel = LanguageListViewModel()
-//
-//        let dismiss = Observable.merge([
-//            languageListViewModel.didCancel,
-//            languageListViewModel.didSelectLanguage.map { _ in }
-//            ])
-//
-//        dismiss
-//            .subscribe(onNext: { [weak self] in self?.dismiss(animated: true) })
-//            .disposed(by: viewController.disposeBag)
-//
-//        languageListViewModel.didSelectLanguage
-//            .bind(to: viewModel.setCurrentLanguage)
-//            .disposed(by: viewController.disposeBag)
-//
-//        viewController.viewModel = languageListViewModel
     }
 
 }

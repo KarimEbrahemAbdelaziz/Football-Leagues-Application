@@ -18,11 +18,15 @@ class TeamListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var leagueTitle: UILabel!
+    @IBOutlet weak var leagueNumberOfTeams: UILabel!
+    @IBOutlet weak var leagueNumberOfGames: UILabel!
     @IBOutlet weak var popButton: UIButton!
     
     private let refreshControl = UIRefreshControl()
     private let disposeBag = DisposeBag()
     var viewModel: TeamListViewModel!
+    var leagueInformation: LeagueViewModel!
+    var selectedTeam: TeamViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +51,12 @@ class TeamListViewController: UIViewController {
     
     private func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 100
         tableView.insertSubview(refreshControl, at: 0)
+        
+        self.leagueTitle.text = leagueInformation.leagueName
+        self.leagueNumberOfGames.text = leagueInformation.leagueNumberOfGames
+        self.leagueNumberOfTeams.text = leagueInformation.leagueNumberOfTeams
     }
     
     private func setupBindings() {
@@ -79,7 +87,9 @@ class TeamListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.showTeamFixtures
-            .subscribe({ [weak self] _ in self?.openTeamFixturesList() })
+            .subscribe({ [weak self] value in
+                self?.selectedTeam = value.element!
+                self?.openTeamFixturesList() })
             .disposed(by: disposeBag)
         
         // View Controller UI actions to the View Model
@@ -122,27 +132,8 @@ class TeamListViewController: UIViewController {
         }
     }
     
-    /// Setups `FixtureListViewController` befor navigation.
-    ///
-    /// - Parameter viewController: `FixtureListViewController` to prepare.
     private func prepareFixtureListViewController(_ viewController: FixtureListViewController) {
-        
-        //        let languageListViewModel = LanguageListViewModel()
-        //
-        //        let dismiss = Observable.merge([
-        //            languageListViewModel.didCancel,
-        //            languageListViewModel.didSelectLanguage.map { _ in }
-        //            ])
-        //
-        //        dismiss
-        //            .subscribe(onNext: { [weak self] in self?.dismiss(animated: true) })
-        //            .disposed(by: viewController.disposeBag)
-        //
-        //        languageListViewModel.didSelectLanguage
-        //            .bind(to: viewModel.setCurrentLanguage)
-        //            .disposed(by: viewController.disposeBag)
-        //
-        //        viewController.viewModel = languageListViewModel
+        viewController.teamInformation = selectedTeam
     }
 
 }

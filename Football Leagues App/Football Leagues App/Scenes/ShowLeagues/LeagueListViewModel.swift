@@ -13,25 +13,19 @@ class LeagueListViewModel {
     
     // MARK: - Inputs
     
-    /// Call to open repository page.
     let selectLeague: AnyObserver<LeagueViewModel>
     
-    /// Call to reload repositories.
     let reload: AnyObserver<Void>
     
     // MARK: - Outputs
     
-    /// Emits a formatted title for a navigation item.
     let title: Observable<String>
     
-    /// Emits an array of fetched repositories.
     let leagues: Observable<[LeagueViewModel]>
     
-    /// Emits an error messages to be shown.
     let alertMessage: Observable<String>
     
-    /// Emits an url of repository page to be shown.
-    let showLeagueTeams: Observable<String>
+    let showLeagueTeams: Observable<LeagueViewModel>
     
     init(leagueRepository: LeaguesRepository = LeaguesRepository()) {
         
@@ -55,7 +49,7 @@ class LeagueListViewModel {
         self.selectLeague = _selectLeague.asObserver()
         self.showLeagueTeams = _selectLeague.asObservable()
             .map {
-                $0.leagueTeamsUrl
+                $0
         }
         
         self.title = Observable.from(["Football Leagues"])

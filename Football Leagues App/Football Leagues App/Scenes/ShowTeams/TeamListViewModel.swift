@@ -13,22 +13,17 @@ class TeamListViewModel {
     
     // MARK: - Inputs
     
-    /// Call to open repository page.
     let selectTeam: AnyObserver<TeamViewModel>
     
-    /// Call to reload repositories.
     let reload: AnyObserver<Void>
     
     // MARK: - Outputs
     
-    /// Emits an array of fetched repositories.
     let teams: Observable<[TeamViewModel]>
     
-    /// Emits an error messages to be shown.
     let alertMessage: Observable<String>
     
-    /// Emits an url of repository page to be shown.
-    let showTeamFixtures: Observable<String>
+    let showTeamFixtures: Observable<TeamViewModel>
     
     init(teamsUrl: String, teamsRepository: TeamsRepository = TeamsRepository()) {
         
@@ -52,7 +47,7 @@ class TeamListViewModel {
         self.selectTeam = _selectTeam.asObserver()
         self.showTeamFixtures = _selectTeam.asObservable()
             .map {
-                $0.teamFixturesUrl
+                $0
         }
         
     }
