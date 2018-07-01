@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class TeamViewModel {
+    let teamFixturesUrl: String
+    let teamName: String
+    let teamLogo: String
+    
+    init(team: Team) {
+        self.teamFixturesUrl = team.teamFixturesUrl
+        self.teamName = team.teamName
+        self.teamLogo = team.teamLogo
+    }
+}

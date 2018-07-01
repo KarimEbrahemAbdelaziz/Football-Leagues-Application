@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TeamCell: UITableViewCell {
     
-    @IBOutlet weak var leagueName: UILabel!
-    @IBOutlet weak var leagueNumberOfGames: UILabel!
-    @IBOutlet weak var leagueNumberOfTeams: UILabel!
+    @IBOutlet weak var teamImage: UIImageView!
+    @IBOutlet weak var teamName: UILabel!
     
+    func configureCell(team: TeamViewModel) {
+        self.teamName.text = team.teamName
+        teamImage.sd_setImage(with: URL(string: team.teamLogo), placeholderImage: UIImage(named: "football"))
+    }
 }

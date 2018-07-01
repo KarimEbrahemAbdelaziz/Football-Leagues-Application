@@ -10,14 +10,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LeagueListViewController: UIViewController, StoryboardInitializable {
+class LeagueListViewController: UIViewController {
 
+    private enum SegueType: String {
+        case teamList = "showTeams"
+    }
+    
     @IBOutlet private weak var tableView: UITableView!
     
     private let refreshControl = UIRefreshControl()
     private let disposeBag = DisposeBag()
+    private var viewModel = LeagueListViewModel()
     
-    var viewModel: LeagueListViewModel!
+    private var selectedUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +55,13 @@ class LeagueListViewController: UIViewController, StoryboardInitializable {
             .subscribe(onNext: { [weak self] in self?.presentAlert(message: $0) })
             .disposed(by: disposeBag)
         
+        viewModel.showLeagueTeams
+            .subscribe({ [weak self] value in
+                self?.selectedUrl = value.element!
+                self?.openTeamsList()
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.title
             .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
@@ -77,6 +89,47 @@ class LeagueListViewController: UIViewController, StoryboardInitializable {
         present(alertController, animated: true)
     }
 
+    // MARK: - Navigation
+    
+    private func openTeamsList() {
+        performSegue(withIdentifier: SegueType.teamList.rawValue, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destinationVC: UIViewController? = segue.destination
+        
+        if let nvc = destinationVC as? UINavigationController {
+            destinationVC = nvc.viewControllers.first
+        }
+        
+        if let viewController = destinationVC as? TeamListViewController, segue.identifier == SegueType.teamList.rawValue {
+            prepareTeamListViewController(viewController)
+        }
+    }
+    
+    /// Setups `TeamListViewController` befor navigation.
+    ///
+    /// - Parameter viewController: `TeamListViewController` to prepare.
+    private func prepareTeamListViewController(_ viewController: TeamListViewController) {
+        let teamLisViewModel = TeamListViewModel(teamsUrl: selectedUrl)
+        viewController.viewModel = teamLisViewModel
+//        let languageListViewModel = LanguageListViewModel()
+//
+//        let dismiss = Observable.merge([
+//            languageListViewModel.didCancel,
+//            languageListViewModel.didSelectLanguage.map { _ in }
+//            ])
+//
+//        dismiss
+//            .subscribe(onNext: { [weak self] in self?.dismiss(animated: true) })
+//            .disposed(by: viewController.disposeBag)
+//
+//        languageListViewModel.didSelectLanguage
+//            .bind(to: viewModel.setCurrentLanguage)
+//            .disposed(by: viewController.disposeBag)
+//
+//        viewController.viewModel = languageListViewModel
+    }
 
 }
 

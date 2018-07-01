@@ -12,3 +12,7 @@ import RxSwift
 protocol LeagueRepositoryProtocol {
     func getData() -> Observable<[League]>
 }
+
+protocol TeamsRepositoryProtocol {
+    func getData(from teamsUrl: String) -> Observable<[Team]>
+}
