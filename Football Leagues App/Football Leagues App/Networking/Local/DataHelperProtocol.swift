@@ -10,9 +10,9 @@ import Foundation
 
 protocol DataHelperProtocol {
     associatedtype T
-    static func createTable()
-    static func insert(item: T)
-    static func findAll() -> [T]
+    func insert(item: T)
+    func findAll() -> [T]
+    func drop()
 }
 
 enum DataAccessError: Error {

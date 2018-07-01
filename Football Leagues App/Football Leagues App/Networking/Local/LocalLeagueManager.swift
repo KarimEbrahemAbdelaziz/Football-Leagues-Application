@@ -28,8 +28,5 @@ class LocalLeagueManager {
             dbConnection = nil
         }
     }
-    
-    func createTables() {
-        LeagueDataHelper.createTable()
-    }
+
 }
